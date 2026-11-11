@@ -4,24 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Negozio didattico</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.prod.js"></script>
+    <script type="module" src="./js/app.js"></script>
 </head>
-<body class="bg-gray-100 text-gray-900">
-    <div id="app" class="min-h-screen">
-        <header class="bg-white shadow">
-            <nav class="mx-auto flex max-w-5xl gap-6 p-4">
-                <router-link to="/" class="hover:text-blue-600">Home</router-link>
-                <router-link to="/prodotti" class="hover:text-blue-600">Prodotti</router-link>
+<body class="min-h-screen bg-slate-100 text-slate-800 antialiased">
+    <a href="#contenuto" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:shadow-lg">Vai al contenuto</a>
+
+    <div id="app" class="flex min-h-screen flex-col">
+        <header class="bg-slate-900 text-white shadow">
+            <nav aria-label="Navigazione principale" class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
+                <router-link to="/" class="text-xl font-bold">Negozio didattico</router-link>
+                <ul class="flex gap-2">
+                    <li><router-link to="/" exact-active-class="bg-blue-600" class="block rounded-md px-3 py-2 hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Home</router-link></li>
+                    <li><router-link to="/prodotti" active-class="bg-blue-600" class="block rounded-md px-3 py-2 hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Prodotti</router-link></li>
+                </ul>
             </nav>
         </header>
 
-        <main class="mx-auto max-w-5xl p-4">
+        <main id="contenuto" tabindex="-1" class="mx-auto w-full max-w-6xl flex-1 px-4 py-8">
             <router-view></router-view>
         </main>
-    </div>
 
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.js"></script>
-    <script src="app.js"></script>
+        <footer class="bg-slate-900 px-4 py-5 text-center text-sm text-white">
+            <p>Progetto di Tecnologie Web</p>
+        </footer>
+    </div>
 </body>
 </html>
